@@ -28,7 +28,10 @@ class TweetsController < ApplicationController
 
     collected_tweets.each do |collected_tweet|
       tweet = Tweet.find_or_create_by_source_id_and_twitter_user_id(collected_tweet.id.to_i, @tweet_user.id)
-      tweet.update_attributes(:text => collected_tweet.text, :source_created_at => collected_tweet.created_at)
+      tweet.text = collected_tweet.text
+      tweet.source_id = collected_tweet.id
+      tweet.source_created_at = collected_tweet.created_at
+      tweet.save!
     end
 
     @tweets = @tweet_user.tweets

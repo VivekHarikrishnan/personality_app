@@ -1,9 +1,9 @@
 class TwitterUser < ActiveRecord::Base
-  attr_accessible :full_name, :screen_name, :source_id
+  attr_accessible :full_name, :screen_name
   @@twitter_configuration = nil
 
   INPUT_TYPES = { "Screen Name" => "screen_name", "User ID" => "user_id" }
-  has_many :tweets
+  has_many :tweets, :dependent => :destroy
   validates :screen_name, :uniqueness => { :scope => [:source_id] }, :presence => true
   validates :source_id, :presence => true
 
