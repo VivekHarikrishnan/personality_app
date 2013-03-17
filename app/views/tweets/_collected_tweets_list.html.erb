@@ -1,0 +1,12 @@
+<div>
+Tweets by <%= @tweet_user.screen_name %>(<%= @tweet_user.full_name %>)
+</div>
+<ul>
+
+<% tweets.each do |tweet| %>
+<li>
+<span><%= tweet.text %></span>
+<span><%= tweet.source_created_at %></span>
+</li>
+<% end %>
+</ul>

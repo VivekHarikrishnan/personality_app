@@ -1,0 +1,7 @@
+<%= form_tag(collect_tweets_path, :method => :post, :remote => true)  do %>
+  <%= select_tag(:input_type, options_for_select(@input_types)) %>
+  <%= text_field_tag(:id) %>
+  <%= submit_tag("Collect Tweets") %>
+<% end %>
+<div id="collected_tweets">
+</div>

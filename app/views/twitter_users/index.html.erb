@@ -1,0 +1,27 @@
+<h1>Listing twitter_users</h1>
+
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Screen name</th>
+    <th>Full name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @twitter_users.each do |twitter_user| %>
+  <tr>
+    <td><%= twitter_user.source_id %></td>
+    <td><%= twitter_user.screen_name %></td>
+    <td><%= twitter_user.full_name %></td>
+    <td><%= link_to 'Show', twitter_user %></td>
+    <td><%= link_to 'Edit', edit_twitter_user_path(twitter_user) %></td>
+    <td><%= link_to 'Destroy', twitter_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Twitter user', new_twitter_user_path %>
